@@ -33,8 +33,7 @@ set( ENABLE_MPI ON CACHE BOOL "Compile with MPI" )
 
 # Handle user options.
 option(BUILD_RDASBUNDLE "Build RDAS Bundle" ON)
-option(CLONE_JCSDADATA "Clone JCSDA test data repositories" OFF)
-option(WORKFLOW_TESTS "Include global-workflow dependent tests" OFF)
+option(ADD_JCSDA_TESTS "whether to add JCSDA JEDI tests" OFF)
 
 # Initialize bundle
 # -----------------
@@ -109,26 +108,6 @@ endif()
 
 # rdas mega executable
   ecbuild_bundle( PROJECT rdas SOURCE "../mains" )
-
-# ioda, ufo, fv3-jedi, and saber test data
-#---------------------------------
-  if(CLONE_JCSDADATA)
-
-   set(JCSDA_DATA_ROOT "$ENV{RDASAPP_TESTDATA}/jcsda")
-   ecbuild_bundle( PROJECT ioda-data SOURCE "${JCSDA_DATA_ROOT}/ioda-data" )
-   ecbuild_bundle( PROJECT ufo-data SOURCE "${JCSDA_DATA_ROOT}/ufo-data" )
-   if(FV3_DYCORE)
-     ecbuild_bundle( PROJECT fv3-jedi-data SOURCE "${JCSDA_DATA_ROOT}/fv3-jedi-data" )
-   endif()
-   if(MPAS_DYCORE)
-     ecbuild_bundle( PROJECT mpas-jedi-data SOURCE "${JCSDA_DATA_ROOT}/mpas-jedi-data" )
-   endif()
-
-  endif(CLONE_JCSDADATA)
-
-  if(ADD_RRFS_TESTS)
-    ecbuild_bundle( PROJECT rrfs-test SOURCE "../rrfs-test" )
-  endif(ADD_RRFS_TESTS)
 
 endif(BUILD_RDASBUNDLE)
 
