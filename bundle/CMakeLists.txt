@@ -33,7 +33,6 @@ set( ENABLE_MPI ON CACHE BOOL "Compile with MPI" )
 
 # Handle user options.
 option(BUILD_RDASBUNDLE "Build RDAS Bundle" ON)
-option(ADD_JCSDA_TESTS "whether to add JCSDA JEDI tests" OFF)
 
 # Initialize bundle
 # -----------------
@@ -108,6 +107,10 @@ endif()
 
 # rdas mega executable
   ecbuild_bundle( PROJECT rdas SOURCE "../mains" )
+
+  if(ADD_RRFS_TESTS)
+    ecbuild_bundle( PROJECT rrfs-test SOURCE "../rrfs-test" )
+  endif(ADD_RRFS_TESTS)
 
 endif(BUILD_RDASBUNDLE)
 
