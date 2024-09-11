@@ -159,3 +159,4 @@ install*/
 expr
 fix/INIT_DONE
 fix/.agent
+log.build
