@@ -1,6 +1,6 @@
 [submodule "sorc/crtm"]
 	path = sorc/crtm
-	url = https://github.com/jcsda/crtm
+	url = https://github.com/rrfsx/crtm
 	branch = release/crtm_jedi_v2.4.1
 	ignore = all
 [submodule "sorc/femps"]
@@ -55,7 +55,7 @@
 	ignore = all
 [submodule "sorc/ufo"]
 	path = sorc/ufo
-	url = https://github.com/jcsda/ufo
+	url = https://github.com/guoqing-noaa/ufo
 	branch = develop
 	ignore = all
 [submodule "sorc/vader"]
